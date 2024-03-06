@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course List</title>
+    <style>
+        body {
+            /* Set background image */
+            background-image: url('background-image.jpg');
+            /* Set background image size and position */
+            background-size: cover;
+            background-position: center;
+            /* Add a background color as a fallback */
+            background-color: #f8f9fa;
+            /* Ensure content takes up full height of viewport */
+            min-height: 100vh;
+            /* Ensure content is above the background image */
+            z-index: -1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000000;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #9fb8da;
+        }
+        .btn {
+            padding: 5px 10px;
+            background-color: #1e3788;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0e250f;
+        }
+        .add-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Course List</h2>
+    <button class="btn add-button">Add</button>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Course Name</th>
+                <th>Code</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            
+            $courses = [
+                ["id" => 1, "name" => "Computer Forensic", "code" => "SKJ6789"],
+                ["id" => 2, "name" => "Network Security", "code" => "SKJ3443"],
+                ["id" => 3, "name" => "Programming", "code" => "SKJ2012"],
+                ["id" => 4, "name" => "Cyber Law", "code" => "SKJ4553"],
+                ["id" => 5, "name" => "Cryptoghrapy", "code" => "SKJ4032"]
+            ];
+
+            
+            foreach ($courses as $course) {
+                echo "<tr>";
+                echo "<td>{$course['id']}</td>";
+                echo "<td>{$course['name']}</td>";
+                echo "<td>{$course['code']}</td>";
+                echo "<td><button class='btn'>Edit</button> <button class='btn'>Delete</button></td>";
+                echo "</tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+</body>
+</html>
